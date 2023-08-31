@@ -1,0 +1,29 @@
+#+TITLE: claw-raylib
+Auto-generate Common Lisp bindings to [[https://www.raylib.com/][Raylib]] (as well as Raymath, RLGL and Raygui) using [[https://github.com/borodust/claw][claw]] and [[https://github.com/bohonghuang/cffi-object][cffi-object]]. 
+* Build
+Tip: You can clone the [[https://github.com/bohonghuang/claw-raylib/tree/prebuild][prebuild]] branch to skip steps 1 and 2.
+
+1. Clone, build and install [[https://github.com/borodust/libresect][libresect]], [[https://github.com/raysan5/raylib][raylib]] and [[https://github.com/raysan5/raygui][raygui]].
+2. Generate the bindings using Clozure CL: \\
+   #+BEGIN_SRC lisp
+     (ql:quickload :claw-raylib/gen)
+     (pushnew :claw-regen-adapter *features*)
+     (cffi:load-foreign-library #P"/path/to/libresect.so")
+     (claw:load-wrapper :raylib)
+     (claw:load-wrapper :raygui)
+     (claw:load-wrapper :rlgl)
+   #+END_SRC
+3. Compile the adapters: \\
+   #+BEGIN_SRC lisp
+     (let ((arch "x86_64-pc-linux-gnu")
+           (path (merge-pathnames #P"lib/" (asdf:component-pathname (asdf:find-system '#:claw-raylib)))))
+       (dolist (lib '("raylib" "rlgl" "raygui"))
+         (uiop:run-program
+          (list "gcc" "-O3" "-fPIC" "-shared" "-o"
+                (namestring (merge-pathnames (format nil "lib~A-adapter.so" lib) path))
+                (namestring (merge-pathnames (format nil "lib~A-adapter.~A.c" lib arch) path))))))
+   #+END_SRC
+4. Load the system:
+   #+BEGIN_SRC lisp
+     (ql:quickload :claw-raylib)
+   #+END_SRC
