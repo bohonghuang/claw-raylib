@@ -20,7 +20,7 @@
          ,(when should-define-wrapper-p
             (if return-object-p
                 (let* ((object-type (when return-object-p (cffi-object-type-p (cadar args))))
-                       (object-constructor (when return-object-p (intern (format nil "MAKE-~A" object-type) (symbol-package object-type)))))
+                       (object-constructor (when return-object-p (intern (format nil "~A~A" '#:make- object-type) (symbol-package object-type)))))
                   `(progn
                      (declaim (ftype function ,object-constructor)
                               (notinline ,object-constructor))
