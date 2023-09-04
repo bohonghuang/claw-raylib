@@ -20,8 +20,8 @@
   :recognize-arrays t
   :with-adapter (:dynamic :path #.(merge-pathnames "lib/libraylib-adapter.c" (asdf:component-pathname (asdf:find-system '#:claw-raylib))))
   :symbolicate-names (:in-pipeline
-                      (:by-replacing "^(Vector[23])([A-Z])" "\\1-\\2")
-                      (:by-replacing "([a-z])([23]D)$" "\\1-\\2")))
+                      (:by-replacing "(Vector[2-4])([A-Z])" "\\1-\\2")
+                      (:by-replacing "([a-z])([2-4]D)$" "\\1-\\2")))
 
 (claw:defwrapper
     (:rlgl
