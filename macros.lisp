@@ -48,27 +48,15 @@
 
 (export 'raylib::with-texture-mode :raylib)
 
-(defmacro raylib::with-scissor-mode ((recx &optional (y nil xywhp) width height) &body body)
+(defmacro raylib::with-scissor-mode ((x y width height) &body body)
   `(progn
-     ,(if xywhp
-          `(raylib:begin-scissor-mode ,recx ,y ,width ,height)
-          (with-gensyms (x y width height)
-            `(with-foreign-slots (((,x raylib:x)
-                                   (,y raylib:y)
-                                   (,width raylib:width)
-                                   (,height raylib:height))
-                                  ,recx (:struct raylib:rectangle))
-               (raylib:begin-scissor-mode
-                (the (signed-byte 32) (truncate ,x))
-                (the (signed-byte 32) (truncate ,y))
-                (the (signed-byte 32) (truncate ,width))
-                (the (signed-byte 32) (truncate ,height))))))
+     (raylib:begin-scissor-mode ,x ,y ,width ,height)
      (unwind-protect (progn . ,body)
        (raylib:end-scissor-mode))))
 
 (export 'raylib::with-scissor-mode :raylib)
 
-(defmacro raylib::with-window ((width height &optional (title (asdf:component-name (asdf:find-system '#:claw-raylib))) flags) &body body)
+(defmacro raylib::with-window ((title (width height) &optional flags) &body body)
   `(progn
      (raylib:set-config-flags ,(eval `(foreign-bitfield-value 'raylib:config-flags ',flags)))
      (raylib:init-window ,width ,height ,title)
@@ -85,9 +73,8 @@
 
 (export 'raylib::with-audio-device :raylib)
 
-(defmacro raylib::with-audio-stream ((stream sample-rate sample-size channels) &body body)
-  `(with-foreign-object (,stream '(:struct raylib:audio-stream))
-     (raylib:load-audio-stream ,stream ,sample-rate ,sample-size ,channels)
+(defmacro raylib::with-audio-stream ((stream (sample-rate sample-size channels)) &body body)
+  `(let ((,stream (raylib:load-audio-stream ,sample-rate ,sample-size ,channels)))
      (unwind-protect (progn . ,body)
        (raylib:unload-audio-stream ,stream))))
 
