@@ -56,9 +56,8 @@
 
 (export 'raylib::with-scissor-mode :raylib)
 
-(defmacro raylib::with-window ((title (width height) &optional flags) &body body)
+(defmacro raylib::with-window ((title (width height)) &body body)
   `(progn
-     (raylib:set-config-flags ,(eval `(foreign-bitfield-value 'raylib:config-flags ',flags)))
      (raylib:init-window ,width ,height ,title)
      (unwind-protect (progn . ,body)
        (raylib:close-window))))
