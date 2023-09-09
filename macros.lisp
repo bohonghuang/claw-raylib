@@ -78,3 +78,11 @@
        (raylib:unload-audio-stream ,stream))))
 
 (export 'raylib::with-audio-stream :raylib)
+
+(defmacro raylib::with-dropped-files (file-path-list &body body)
+  `(when (raylib:is-file-dropped)
+     (let ((,file-path-list (raylib:load-dropped-files)))
+       (unwind-protect (progn . ,body)
+         (raylib:unload-dropped-files ,file-path-list)))))
+
+(export 'raylib::with-dropped-files :raylib)
