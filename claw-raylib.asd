@@ -33,4 +33,6 @@
                              (:file "3d-camera-mode")
                              (:file "3d-picking")
                              (:file "basic-window")
-                             (:file "world-screen")))))
+                             (:file "world-screen")))
+               (:module "raygui"
+                :components ((:file "controls-test-suite")))))
