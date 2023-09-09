@@ -13,7 +13,6 @@
                             #:claw-raylib.raygui
                             #:claw-raylib.rlgl)
   :components ((:file "package")
-               (:file "utils" :depends-on ("package"))
                (:file "object" :depends-on ("package"))
                (:file "macros" :depends-on ("package"))
                (:file "unintern" :depends-on ("package"))

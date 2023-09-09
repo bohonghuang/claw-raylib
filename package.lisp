@@ -1,8 +1,5 @@
 (defpackage claw-raylib
-  (:use #:cl #:alexandria #:cffi)
-  (:export
-   #:define-conversion-into-foreign-memory
-   #:define-conversion-from-foreign))
+  (:use #:cl #:alexandria #:cffi))
 
 (in-package #:claw-raylib)
 
