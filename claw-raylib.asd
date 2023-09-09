@@ -23,3 +23,14 @@
   :depends-on (#:alexandria #:cffi #:claw)
   :pathname "./"
   :components ((:file "claw")))
+
+(defsystem claw-raylib/examples
+  :depends-on (#:alexandria #:claw-raylib #:cffi-ops #:cffi-object #:cffi-object.ops)
+  :pathname "./examples/"
+  :components ((:file "package")
+               (:module "core"
+                :components ((:file "2d-camera")
+                             (:file "3d-camera-mode")
+                             (:file "3d-picking")
+                             (:file "basic-window")
+                             (:file "world-screen")))))
