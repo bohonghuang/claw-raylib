@@ -1,8 +1,8 @@
-./lib
-./raygui
-./raylib
-./rlgl
-claw-raylib.raygui.asd
-claw-raylib.raylib.asd
-claw-raylib.rlgl.asd
+/lib/
+/raygui/
+/raylib/
+/rlgl/
+/claw-raylib.raygui.asd
+/claw-raylib.raylib.asd
+/claw-raylib.rlgl.asd
 *.so
