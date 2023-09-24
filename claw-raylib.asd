@@ -7,11 +7,12 @@
   :bug-tracker "https://github.com/bohonghuang/claw-raylib/issues"
   :source-control (:git "https://github.com/bohonghuang/claw-raylib.git")
   :pathname "./"
-  :depends-on (#:alexandria #:cffi #:cffi-ops #:cffi-object #:cffi-object.ops
-                            #:claw-raylib.defcfun
-                            #:claw-raylib.raylib
-                            #:claw-raylib.raygui
-                            #:claw-raylib.rlgl)
+  :depends-on (#:alexandria #:global-vars
+               #:cffi #:cffi-ops #:cffi-object #:cffi-object.ops
+               #:claw-raylib.defcfun
+               #:claw-raylib.raylib
+               #:claw-raylib.raygui
+               #:claw-raylib.rlgl)
   :components ((:file "package")
                (:file "object" :depends-on ("package"))
                (:file "macros" :depends-on ("package"))

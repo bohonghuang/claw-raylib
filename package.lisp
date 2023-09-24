@@ -8,3 +8,5 @@
   (fmakunbound 'claw-raylib.defcfun::%defcfun))
 
 (cobj.ops:enable-cobject-ops)
+
+(setf cobj:*define-global-cobject* 'global-vars:define-global-var)
