@@ -3,9 +3,7 @@
 
 (in-package #:claw-raylib)
 
-(when (macro-function 'claw-raylib.defcfun::%defcfun)
-  (setf (macro-function 'cffi:defcfun) (macro-function 'claw-raylib.defcfun::%defcfun))
-  (fmakunbound 'claw-raylib.defcfun::%defcfun))
+(setf (macro-function 'cffi:defcfun) cobj::+defcfun+)
 
 (cobj.ops:enable-cobject-ops)
 
