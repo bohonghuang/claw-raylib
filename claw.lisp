@@ -14,8 +14,21 @@
                                    (asdf:component-pathname (asdf:find-system '#:claw-raylib)))
       :bindings-path #.(merge-pathnames "raylib/" (asdf:component-pathname (asdf:find-system '#:claw-raylib))))
      (:include-definitions ".*")
-     (:exclude-definitions "lgammal" "gammal" "dreml" "ynl" "jnl" "y0l" "y1l" "j0l" "j1l"
-                           "scalbl" "significandl" "lgammal_r"
+     (:exclude-definitions "gamma" "gammaf" "gammal"
+                           "lgamma" "lgammaf" "lgammal"
+                           "lgamma_r" "lgammaf_r" "lgammal_r"
+                           "drem" "dremf" "dreml"
+                           "y0" "y0f" "y0l"
+                           "y1" "y1f" "y1l"
+                           "yn" "ynf" "ynl"
+                           "j0" "j0f" "j0l"
+                           "j1" "j1f" "j1l"
+                           "jn" "jnf" "jnl"
+                           "scalb" "scalbf" "scalbl"
+                           "significand" "significandf" "significandl"
+                           "finite" "finitef" "finitel"
+                           "isinf" "isinff" "isinfl"
+                           "isnan" "isnanf" "isnanl"
                            "_t$" "^__(?!claw)"))
   :in-package :raylib
   :trim-enum-prefix t
