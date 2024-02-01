@@ -57,6 +57,11 @@ Tip: You can clone the [[https://github.com/bohonghuang/claw-raylib/tree/prebuil
    #+BEGIN_SRC lisp
      (ql:quickload :claw-raylib)
    #+END_SRC
+   
+   /Notes for SBCL:/
+   
+   During this process, SBCL may consume a significant amount of memory, potentially leading to heap exhaustion.
+   You may need to add ~--dynamic-space-size 4096~ to the SBCL command-line arguments before the first load of ~claw-raylib~.
 * Features
 ** Up-to-date & Complete
 Raylib, Rlgl, Raymath, and Raygui's low-level and high-level APIs are automatically generated using ~claw~ and ~cffi-object~,
