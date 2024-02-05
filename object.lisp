@@ -4,7 +4,16 @@
 
 (cl:in-package #:rlgl)
 
-(cobj:define-cobject-class #:rlgl)
+(cl:eval-when (:compile-toplevel :load-toplevel :execute)
+  (cffi:defctype matrix (:struct raylib:matrix)))
+
+(cl:progn . #.(cl:remove-if
+               (cl:lambda (form)
+                 (alexandria:destructuring-case form
+                   ((cobj::define-struct-cobject-class (name cl:&rest args))
+                    (cl:declare (cl:ignore args))
+                    (cl:eq name 'matrix))))
+               (cl:cdr (cl:macroexpand '(cobj:define-cobject-class #:rlgl)))))
 
 (cl:in-package #:raygui)
 
