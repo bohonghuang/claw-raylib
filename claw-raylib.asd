@@ -16,8 +16,8 @@
   :components ((:file "package")
                (:file "object" :depends-on ("package"))
                (:file "macros" :depends-on ("package"))
-               (:file "unintern" :depends-on ("package"))
-               (:file "constants" :depends-on ("package" "unintern"))
+               (:file "unexport" :depends-on ("package"))
+               (:file "reexport" :depends-on ("package" "unexport"))
                (:file "library" :depends-on ("package"))))
 
 (defsystem claw-raylib/gen

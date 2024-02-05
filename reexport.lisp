@@ -103,3 +103,7 @@
 (cobj:define-global-cobject raylib::+raywhite+ (raylib:make-color :r 245 :g 245 :b 245 :a 255))
 
 (export 'raylib::+raywhite+ :raylib)
+
+(let ((symbols '(matrix-multiply %matrix-multiply)))
+  (import symbols :raylib)
+  (export symbols :raylib))
