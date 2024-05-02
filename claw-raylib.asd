@@ -18,7 +18,7 @@
                (:file "macros" :depends-on ("package"))
                (:file "unexport" :depends-on ("package"))
                (:file "reexport" :depends-on ("package" "unexport"))
-               (:file "library" :depends-on ("package"))))
+               (:file "library" :depends-on ("package" "object"))))
 
 (defsystem claw-raylib/gen
   :depends-on (#:alexandria #:cffi #:claw)

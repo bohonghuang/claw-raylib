@@ -13,7 +13,7 @@ You need to ensure that Raylib, Raygui, and a compatible C compiler are installe
 
 Tip: You can clone the [[https://github.com/bohonghuang/claw-raylib/tree/prebuild][prebuild]] branch to skip steps 1 and 2.
 
-1. Clone, build and install [[https://github.com/borodust/libresect][libresect]], [[https://github.com/raysan5/raylib][raylib]] and [[https://github.com/raysan5/raygui][raygui]].
+1. Clone, build and install [[https://github.com/borodust/libresect][libresect]], [[https://github.com/raysan5/raylib][raylib]] and [[https://github.com/raysan5/raygui][raygui]] (optional).
 2. Generate the bindings using Clozure CL. \\
    #+BEGIN_SRC lisp
      (ql:quickload :claw-raylib/gen)
