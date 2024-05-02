@@ -181,4 +181,5 @@ Opening a PR for contributions is welcome. Encountering any problem, feel free t
   and then manually writes the exported high-level APIs. ~claw-raylib~, on the other hand, is just a Lispy Raylib wrapper that does not offer any functionality beyond Raylib itself.
   It is suitable for cases where you only want to use Raylib  or develop your own game engine/framework based on Raylib in Common Lisp.
 * Projects using ~claw-raylib~
+- [[https://github.com/bohonghuang/eon][eon]]: An easy-to-use but flexible game framework for Common Lisp.
 - [[https://github.com/bohonghuang/cl-universal-tween-engine][cl-universal-tween-engine]]: Common Lisp port of the Universal Tween Engine, whose [[https://github.com/bohonghuang/cl-universal-tween-engine/tree/master/demo][demo]] is made by ~claw-raylib~.
