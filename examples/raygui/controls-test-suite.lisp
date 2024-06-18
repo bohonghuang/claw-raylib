@@ -271,8 +271,8 @@
                                          "Introduce output file name:"
                                          "Ok;Cancel" (& text-input) 255 secret-view-active)))
                             (case result
-                              (1 (setf (cobj:carray-string text-input-file-name) (cobj:carray-string text-input))))
+                              (1 (setf (cobj:ccoerce text-input-file-name 'string) (cobj:ccoerce text-input 'string))))
                             (case result
                               ((0 1 2)
                                (setf (cbool-value show-text-input-box) nil)
-                               (setf (cobj:carray-string text-input) "")))))))))))))
+                               (setf (cobj:ccoerce text-input 'string) "")))))))))))))
