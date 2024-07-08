@@ -17,11 +17,15 @@
 
 (cffi:use-foreign-library libraylib-adapter)
 
+(push :raylib *features*)
+
 (cffi:define-foreign-library librlgl-adapter
   (:unix "librlgl-adapter.so")
   (t (:default "librlgl-adapter")))
 
 (cffi:use-foreign-library librlgl-adapter)
+
+(push :rlgl *features*)
 
 (cffi:define-foreign-library libraygui
   (:unix "libraygui.so")
@@ -34,6 +38,7 @@
 (handler-case
     (progn
       (cffi:use-foreign-library libraygui)
-      (cffi:use-foreign-library libraygui-adapter))
+      (cffi:use-foreign-library libraygui-adapter)
+      (push :raygui *features*))
   (cffi:load-foreign-library-error ()
     (delete-package '#:raygui)))
