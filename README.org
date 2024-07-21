@@ -39,7 +39,12 @@ Tip: You can clone the [[https://github.com/bohonghuang/claw-raylib/tree/prebuil
       
       #+BEGIN_SRC c
         #include <minwindef.h>
-        HMODULE GetModuleHandle(LPCTSTR name);
+        #define GetModuleHandle GetModuleHandleA
+        HMODULE GetModuleHandleA(LPCTSTR name);
+        FARPROC GetProcAddress(
+          HMODULE hModule,
+          LPCSTR  lpProcName
+        );
      #+END_SRC
    2. Since ~minwindef.h~ still contains the ~near~ and ~far~ keywords, you also need to replace all ~near~ and ~far~ identifiers with identifiers like ~_near~ and ~_far~.
       You can find them with RegExp ~\(near\|far\)\(,\|)\)~ and replace them with ~_\1\2~ in Emacs.
