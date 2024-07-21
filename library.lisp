@@ -1,4 +1,7 @@
-(in-package #:claw-raylib)
+(defpackage claw-raylib.library
+  (:use #:cl #:alexandria))
+
+(in-package #:claw-raylib.library)
 
 (pushnew
  (namestring

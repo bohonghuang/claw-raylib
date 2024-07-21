@@ -29,7 +29,9 @@
                            "finite" "finitef" "finitel"
                            "isinf" "isinff" "isinfl"
                            "isnan" "isnanf" "isnanl"
-                           "_t$" "^__(?!claw)"))
+                           "_t$" "^__(?!claw)"
+                           ;; See https://gitlab.com/embeddable-common-lisp/ecl/-/issues/753
+                           "^frexp$" "^frexpf$" "^modf$" "^modff$" "^nan$" "^nanf$" "^remquo$" "^remquof$"))
   :in-package :raylib
   :trim-enum-prefix t
   :recognize-bitfields t
