@@ -37,7 +37,7 @@
                       (if (not (raylib:ray-collision-hit ray-collision))
                           (progn
                             (raylib:%get-mouse-position (& mouse-position))
-                            (raylib:%get-mouse-ray (& ray) (& mouse-position) (& camera))
+                            (raylib:%get-screen-to-world-ray (& ray) (& mouse-position) (& camera))
                             (raylib:%get-ray-collision-box (& ray-collision) (& ray) (& cube-bounding-box)))
                           (setf (raylib:ray-collision-hit ray-collision) nil)))
                     (raylib:with-drawing

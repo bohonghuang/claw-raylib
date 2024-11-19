@@ -187,7 +187,7 @@
                          list-view-scroll-index list-view-active)
                         (raygui:list-view-ex
                          (raylib:make-rectangle :x 165.0 :y 162.0 :width 140.0 :height 184.0)
-                         (& list-view-ex-list) (cobj:clength list-view-ex-list)
+                         list-view-ex-list (cobj:clength list-view-ex-list)
                          list-view-ex-scroll-index list-view-ex-active list-view-ex-focus)
                         (raygui:toggle-group
                          (raylib:make-rectangle :x 165.0 :y 360.0 :width 140.0 :height 24.0)
