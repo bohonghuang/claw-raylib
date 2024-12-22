@@ -9,10 +9,7 @@
   :depends-on (#:alexandria #:global-vars
                #:cffi #:cffi-ops #:cffi-object #:cffi-object.ops
                #:claw-raylib.defcfun
-               #:claw-raylib.library
-               #:claw-raylib.raylib
-               #:claw-raylib.raygui
-               #:claw-raylib.rlgl)
+               #:claw-raylib.library)
   :components ((:file "package")
                (:file "object" :depends-on ("package"))
                (:file "macros" :depends-on ("package"))
