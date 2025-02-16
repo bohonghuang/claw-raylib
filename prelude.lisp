@@ -1,6 +1,6 @@
-(defpackage claw-raylib.defcfun
+(defpackage claw-raylib.prelude
   (:use #:cl #:alexandria))
 
-(in-package #:claw-raylib.defcfun)
+(in-package #:claw-raylib.prelude)
 
 (setf (macro-function 'cffi:defcfun) (macro-function 'cobj::defcobjfun))
