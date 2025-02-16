@@ -44,4 +44,5 @@
       (cffi:use-foreign-library libraygui-adapter)
       (push :raygui *features*))
   (cffi:load-foreign-library-error ()
-    (delete-package '#:raygui)))
+    (when-let ((package (find-package '#:raygui)))
+      (delete-package package))))
