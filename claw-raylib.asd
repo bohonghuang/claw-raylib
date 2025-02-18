@@ -6,7 +6,7 @@
   :homepage "https://github.com/bohonghuang/claw-raylib"
   :bug-tracker "https://github.com/bohonghuang/claw-raylib/issues"
   :source-control (:git "https://github.com/bohonghuang/claw-raylib.git")
-  :depends-on (#:alexandria #:global-vars
+  :depends-on (#:asdf #:alexandria #:global-vars
                #:cffi #:cffi-ops #:cffi-object #:cffi-object.ops
                #:claw-raylib.prelude
                #:claw-raylib.library)

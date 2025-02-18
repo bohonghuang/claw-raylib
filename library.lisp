@@ -5,7 +5,7 @@
 
 (pushnew
  (namestring
-  (merge-pathnames #P"lib/" (asdf:component-pathname (asdf:find-system '#:claw-raylib))))
+  #.(merge-pathnames #P"lib/" (asdf:component-pathname (asdf:find-system '#:claw-raylib))))
  cffi:*foreign-library-directories* :test #'string=)
 
 (cffi:define-foreign-library libraylib
