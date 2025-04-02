@@ -30,6 +30,13 @@
                              (:file "3d-camera-mode")
                              (:file "3d-picking")
                              (:file "basic-window")
-                             (:file "world-screen")))
+                             (:file "world-screen")
+			     (:file "core-basic-screen-manager")
+			     (:file "core-input-gamepad")
+			     (:file "core-input-keys")
+			     (:file "core-input-mouse")
+			     (:file "core-vr-simulator")))
+	       (:module "audio"
+		:components ((:file "audio-sound-loading")))
                (:module "raygui"
                 :components ((:file "controls-test-suite")))))
