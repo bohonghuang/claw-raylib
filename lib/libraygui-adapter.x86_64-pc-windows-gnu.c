@@ -21,7 +21,13 @@
 #endif
 
 #ifdef _WIN32
-#  include <windows.h>
+#include <minwindef.h>
+#define GetModuleHandle GetModuleHandleA
+HMODULE GetModuleHandleA(LPCTSTR name);
+FARPROC GetProcAddress(
+  HMODULE hModule,
+  LPCSTR  lpProcName
+);
 static HMODULE ___claw_module;
 
 static int ___claw_init_wrapper() {
