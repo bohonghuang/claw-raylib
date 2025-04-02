@@ -50,6 +50,17 @@ Tip: You can clone the [[https://github.com/bohonghuang/claw-raylib/tree/prebuil
                 (namestring (merge-pathnames (format nil "lib~A-adapter.so" lib) path))
                 (namestring (merge-pathnames (format nil "lib~A-adapter.~A.c" lib arch) path))))))
    #+END_SRC
+   If you use windows do \\
+   #+BEGIN_SRC lisp
+     (let ((arch "x86_64-pc-windows-gnu")
+           (path (merge-pathnames #P"lib/" (asdf:component-pathname (asdf:find-system '#:claw-raylib)))))
+       (dolist (lib '("raylib" "rlgl" "raygui"))
+         (uiop:run-program
+          (list "gcc" "-O3" "-fPIC" "-shared" "-o"
+                (namestring (merge-pathnames (format nil "lib~A-adapter.dll" lib) path))
+                (namestring (merge-pathnames (format nil "lib~A-adapter.~A.c" lib arch) path))
+                "-lraylib"))))
+   #+END_SRC 
 4. Load the system. \\
    #+BEGIN_SRC lisp
      (ql:quickload :claw-raylib)
